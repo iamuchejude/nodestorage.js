@@ -2,6 +2,8 @@
 
 > File system storage utility with `localStorage` like API
 
+[![Build Status](https://travis-ci.org/iamuchejude/nodestorage.js.svg?branch=master)](https://travis-ci.org/iamuchejude/nodestorage.js)
+
 ## Install
 
 ```sh
