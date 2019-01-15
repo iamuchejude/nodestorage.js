@@ -1,6 +1,6 @@
 # nodestorage.js
 
-> File manager storage utility for Node with `localStorage` like API
+> File system storage utility with `localStorage` like API
 
 ## Install
 

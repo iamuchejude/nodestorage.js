@@ -7,3 +7,4 @@ examples/
 .npmrc
 .travis.yml
 package-lock.json
+yarn.lock
