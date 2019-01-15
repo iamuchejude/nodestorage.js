@@ -2,26 +2,44 @@
   "name": "nodestorage.js",
   "version": "1.0.0",
   "description": "With localStorage like API",
-  "main": "index.js",
+  "main": "dist/index.js",
   "directories": {
     "test": "test"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha --require @babel/register",
+    "build": "babel ./src --out-dir ./dist",
+    "pre:publish": "npm run build"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/iamuchejude/nodestorage.js.git"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "keywords": [
+    "storage",
+    "node storage",
+    "localStorage",
+    "local storage"
+  ],
+  "author": "Uche Jude <iamuchejude@gmail.com>",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/iamuchejude/nodestorage.js/issues"
   },
   "homepage": "https://github.com/iamuchejude/nodestorage.js#readme",
   "dependencies": {
+    "@babel/register": "^7.0.0",
     "gettype.js": "^1.1.0",
+    "microbundle": "^0.9.0",
     "pkg-dir": "^3.0.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.2.3",
+    "@babel/core": "^7.2.2",
+    "@babel/node": "^7.2.2",
+    "@babel/preset-env": "^7.2.3",
+    "chai": "^4.2.0",
+    "mocha": "^5.2.0",
+    "rimraf": "^2.6.3"
   }
 }

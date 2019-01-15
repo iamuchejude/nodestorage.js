@@ -4,14 +4,13 @@ const typeOf = require('gettype.js');
 
 module.exports = function (dir = null) {
   if (!dir || typeOf(dir) !== 'String') {
-    throw new TypeError('TypeError');
+    throw new TypeError('Invalid argument provided');
   }
 
-  fs.mkdir(dir, (err) => {
-    if (err) {
-      throw new Error('Test', err);
-    }
-
+  try {
+    fs.mkdirSync(dir);
     return;
-  })
+  } catch (err) {
+    throw Error('Can\'t create directory');
+  }
 }
