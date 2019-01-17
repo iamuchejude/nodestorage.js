@@ -62,13 +62,13 @@ Return storage path
 
 
 ## Contributing
-Do you find this project interesting and fee like you can make any part of it better? Feel free to raise a PR as it will be greatly appreciated
+Do you find this project interesting and feel like you can make any part of it better? Feel free to raise a PR as it will be greatly appreciated.
 
 ## Issues
-Did you find something that is not fine about this project? Do you have a feature that you feel should be added? Are you having problems with using this library in your project?  Kindly create an issue stating what the problem is. The awesome OS community will see that your issue is resolved.
+Did you find something that is not fine about this project? Do you have a feature that you feel should be added? Are you having problems using this library in your project?  Kindly create an issue stating what the problem is. The awesome OS community will see that your issue is resolved.
 
 ## How can you support?
-Contributing to this project and raising issues are very good ways to support. Another way to support is to start this repository.
+Contributing to this project and raising issues are very good ways to support. Another way to support is to star this repository.
 
 ## License
 
