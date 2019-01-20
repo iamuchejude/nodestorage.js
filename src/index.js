@@ -1,17 +1,10 @@
-'use strict';
-
 import fs from 'fs';
 import path from 'path';
 import typeOf from 'gettype.js';
 import basePath from 'pkg-dir';
 
-// const fs = require('fs');
-// const path = require('path');
-// const typeOf = require('gettype.js');
-// const basePath = require('pkg-dir');
-
-const _createDirectory = require('./util/createDirectory');
-const _readStorage = require('./util/readStorage');
+import _createDirectory from './util/createDirectory';
+import _readStorage from './util/readStorage';
 
 const Storage = function (options = null) {
   if (!options || typeOf(options) !== 'Object') {
@@ -82,20 +75,20 @@ Storage.prototype.getItem = function (key = null) {
   return null;
 }
 
-Storage.prototype.setItem = function (key = null, value = null, cb = null) {
+Storage.prototype.setItem = function (key = null, value = null) {
   if (!key || !value) {
     throw new TypeError('Invalid arguments');
   }
-  
-  fs.writeFile(`${this._path}/${key.toString()}`, value.toString(), (err) => {
-    if (cb) {
-      return cb(err ? err : null, {key, value});
-    }
 
-    if (err) throw new Error('Can\'t write file');
-    
-    return;
-  })
+  try {
+    const write = fs.writeFileSync(`${this._path}/${key.toString()}`, value.toString());
+
+    if (write) {
+      return;
+    }
+  } catch (e) {
+    throw new Error (e);
+  }
 }
 
 Storage.prototype.removeItem = function (key = null) {
@@ -113,14 +106,15 @@ Storage.prototype.removeItem = function (key = null) {
     return;
   }
 
-  fs.unlink(`${this._path}/${key}`, (err) => {
-    if (err) {
-      if (err.code === 'ENOENT') return;
-      throw new Error('Can\'t delete file');
-    }
+  try {
+    const removeFile = fs.unlinkSync(`${this._path}/${key}`);
 
+    if (removeFile) {
+      return;
+    }
+  } catch (e) {
     return;
-  });
+  }
 }
 
 Storage.prototype.clear = function () {
@@ -134,11 +128,11 @@ Storage.prototype.clear = function () {
     const files = fs.readdirSync(this._path);
 
     for (file of files) {
-      fs.unlink(path.join(this._path, file), err => {
-        if (err) {
-          throw err;
-        }
-      });
+      try {
+       fs.unlinkSync(path.join(this._path, file));
+      } catch (e) {
+        throw e;
+      }
     }
 
     return;
