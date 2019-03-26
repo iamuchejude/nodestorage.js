@@ -14,7 +14,7 @@ const Storage = function (options = null) {
   let nsParentDirectory = path.join(
     basePath.sync(__dirname),
     options.parent && typeOf(options.parent) === 'string' ?
-    otions.parent.replace(/[^\w\s]/gi, '_') :
+    options.parent.replace(/[^\w\s]/gi, '_') :
     'ns'
   );
 
