@@ -70,6 +70,9 @@ Did you find something that is not fine about this project? Do you have a featur
 ## How can you support?
 Contributing to this project and raising issues are very good ways to support. Another way to support is to star this repository.
 
+## Contributors
+Adenekan Wonderful [Visit Profile](https://codewonders.us)
+
 ## License
 
 MIT @ [Uche Jude](https://iamuchejude.com)
